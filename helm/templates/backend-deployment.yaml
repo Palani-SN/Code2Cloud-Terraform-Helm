@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+    kompose.version: 1.37.0 (fb0539e64)
+  labels:
+    io.kompose.service: {{ include "my-chart.fullname" . }}-backend
+  name: {{ include "my-chart.fullname" . }}-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: {{ include "my-chart.fullname" . }}-backend
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+        kompose.version: 1.37.0 (fb0539e64)
+      labels:
+        io.kompose.service: {{ include "my-chart.fullname" . }}-backend
+    spec:
+      containers:
+        - image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+          name: fastapi
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+      restartPolicy: Always

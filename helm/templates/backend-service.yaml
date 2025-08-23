@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+    kompose.version: 1.37.0 (fb0539e64)
+  labels:
+    io.kompose.service: {{ include "my-chart.fullname" . }}-backend
+  name: {{ include "my-chart.fullname" . }}-backend
+spec:
+  ports:
+    - name: "8000"
+      port: {{ .Values.backend.service.port }}
+      targetPort: {{ .Values.backend.service.port }}
+  selector:
+    io.kompose.service: {{ include "my-chart.fullname" . }}-backend

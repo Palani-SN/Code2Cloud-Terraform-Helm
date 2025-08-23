@@ -1,0 +1,18 @@
+
+backend:
+  image:
+    repository: logexan-webapp-backend
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 8000
+  replicaCount: 1
+
+frontend:
+  image:
+    repository: logexan-webapp-frontend
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 5000
+  replicaCount: 1
