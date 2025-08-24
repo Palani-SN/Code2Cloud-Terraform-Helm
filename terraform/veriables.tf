@@ -6,6 +6,15 @@ variable "region" {
 variable "zone" {
   default = "us-central1-c"
 }
+variable "repo_name" {
+  default = "c2c-charts"
+}
 variable "cluster_name" {
-  default = "my-gke-cluster"
+  default = "c2c-cluster"
+}
+variable "network_name" {
+  default = "c2c-network"
+}
+variable "app_name" {
+  default = "c2c-app"
 }
