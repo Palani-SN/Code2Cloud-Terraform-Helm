@@ -1,3 +1,4 @@
+name: c2c-artifacts # This sets the project name
 services:
   backend:
     build:

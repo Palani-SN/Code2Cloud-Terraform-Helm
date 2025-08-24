@@ -7,7 +7,7 @@ variable "zone" {
   default = "us-central1-c"
 }
 variable "repo_name" {
-  default = "c2c-charts"
+  default = "c2c-artifacts"
 }
 variable "cluster_name" {
   default = "c2c-cluster"
