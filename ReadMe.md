@@ -452,7 +452,7 @@ Gracefully stopping... (press Ctrl+C again to force)
 
 ```
 
-#### Selective creation of GCPArtifact Registry using Terrafrom IaC for storing the Containers
+#### Selective creation of GCP Artifact Registry using Terrafrom IaC for storing the Containers
 
 - execute the following in the **terraform/** path of the repo.
 
