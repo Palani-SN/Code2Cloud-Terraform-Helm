@@ -669,9 +669,9 @@ service_urls = {
 
 #### Results
 
-- kubectl get nodes
+- gcloud container node-pools list --cluster c2c-cluster --region us-central1
 
-![kubectl get nodes](image.png)
+![gcloud container node-pools list](image-3.png)
 
 - helm list -A
 
