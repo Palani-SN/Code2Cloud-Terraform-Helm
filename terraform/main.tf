@@ -113,11 +113,6 @@ resource "google_container_cluster" "gke_cluster" {
 
 }
 
-# data "google_container_cluster" "gke_data" {
-#   name     = google_container_cluster.gke_cluster.name
-#   location = google_container_cluster.gke_cluster.location
-# }
-
 data "google_client_config" "default" {}
 
 provider "kubernetes" {
