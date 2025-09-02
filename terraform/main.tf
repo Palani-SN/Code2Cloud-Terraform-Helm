@@ -29,22 +29,25 @@ resource "google_project_service" "iam" {
   service = "iam.googleapis.com"
 }
 
+resource "google_project_service" "compute" {
+  project                    = var.project_id
+  service                    = "compute.googleapis.com"
+  disable_on_destroy         = true
+  disable_dependent_services = true
+  depends_on                 = [google_project_service.iam]
+}
+
 resource "google_project_service" "gke" {
   project    = var.project_id
   service    = "container.googleapis.com"
-  depends_on = [google_project_service.iam]
+  disable_on_destroy = true
+  depends_on = [google_project_service.compute]
 }
 
 resource "google_project_service" "artifact_registry" {
   project    = var.project_id
   service    = "artifactregistry.googleapis.com"
   depends_on = [google_project_service.gke]
-}
-
-resource "google_project_service" "compute" {
-  project    = var.project_id
-  service    = "compute.googleapis.com"
-  depends_on = [google_project_service.iam]
 }
 
 # Artifact Registry Creation
@@ -110,7 +113,7 @@ resource "google_container_cluster" "gke_cluster" {
     cluster_secondary_range_name  = "pods"
     services_secondary_range_name = "services"
   }
-
+  depends_on = [google_project_service.gke]
 }
 
 data "google_client_config" "default" {}
