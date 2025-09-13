@@ -660,13 +660,6 @@ service_urls = {
 
 ```
 
-- Mapped Ip to Domain for ease of use, kindly use the link below for accessing the services.
-
-| Service   | URL                                  |
-|:----------|:-------------------------------------|
-| API       | http://demowork.mywire.org:8000/docs |
-| UI        | http://demowork.mywire.org:5000      |
-
 #### Results
 
 - gcloud container node-pools list --cluster c2c-cluster --region us-central1
